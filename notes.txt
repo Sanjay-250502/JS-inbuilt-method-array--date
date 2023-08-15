@@ -75,14 +75,14 @@ sort() $
 slice() $
 splice() $
 reverse() $
-isArray()
-indexOf()
-lastIndexof()
-find()
-findIndex()
+isArray() $
+indexOf() $
+lastIndexof() $
+find() $
+findIndex() $
 includes() $
-entries()
-every()
+entries() $
+every() $
 some()
 fill()
 copywithin()
@@ -153,3 +153,102 @@ Examples:
 // console.log(a.includes(2));          //true
 // console.log(a.includes("abc"));      //true
 // console.log(a.includes(25));         //false
+
+/****************************************************************************************************/
+
+//find()
+1. The find() method returns the value of first element that passes the test.
+2. The find() method doesn't change the original array.
+3. The find() method returns 'undefined' if no elements are found.
+4. The find() method executes a function for each array element.
+5. The find() method doesn't executes the function for empty elements.
+
+syntax :- arrayname.find(function(value));
+ var fruits = ["apple", "banana", "orange", "cherries", "mango"]
+ var result = fruits.find(function(value){
+     return value === "cherries";
+ });
+ console.log(result);                         //cherries
+ console.log(fruits);                         //["apple", "banana", "orange", "cherries", "mango"]
+ console.log(fruits.find("apple"));           //apple is not a function.
+
+ var fruits = ["apple", "banana", "orange", "cherries", "mango"]
+ var result = fruits.find(function(value){
+     return value === "watermelon";
+ });
+ console.log(result);                            //undefined
+
+**********************************************************************************************************
+ 
+ //findIndex()
+ syntax :- arrayname.findIndex(function(value));
+var arr = [1,4,24,56,88,2];
+var result = arr.findIndex(function(value){
+    return value === 24;
+});
+console.log(result);                     //2
+
+var arr = [1,4,24,56,88,2];
+var findInd = arr.findIndex(function(value){
+    return value>40;
+});
+console.log("findIndex-->"+findInd);                 //3
+console.log(findInd);                                //3
+
+***********************************************************************************************************
+
+//entries()
+syntax:- entries()
+var a = ["a","b","c"];
+var b = a.entries();
+console.log(b);                    //Array Iterator {}
+console.log(b.next().value);       //[0, 'a']
+console.log(b.next().value);       //[1, 'b']
+console.log(b.next().value);       //[2, 'c']
+
+***********************************************************************************************************
+
+//indexOf() ==>This method returns the first index at which given element can be found in the array, or it will print (-1),if the given element is not found.
+syntax:- indexOf(search element, fromIndex)
+var flower = ["rose", "lily", "jasmine", "rose"];
+console.log(flowers.indexOf("rose"));       //0
+console.log(flowers.indexOf("jasmine"));    //2
+console.log(flowers.indexOf("lotus"));      //-1
+console.log(flower.indexOf("rose",2))       //3
+
+***********************************************************************************************************
+
+lastIndexOf() ==>This method returns the last index at which given element can be found in the array, or it will print (-1),if the given element is not found.
+syntax:- lastIndexOf(search element)
+syntax:- lastIndexOf(search Element,fromIndex)
+ var flowers = ["rose", "lily", "jasmine", "rose"];
+ console.log(flowers.lastIndexOf("rose"));     //3  
+ console.log(flowers.lastIndexOf("jasmine"));  //2  
+ console.log(flowers.lastIndexOf("lotus"));    //-1  
+ console.log(flowers.lastIndexOf("rose",2))    // 0 
+
+ **********************************************************************************************************
+
+ isArray() ==>we use only let or const dont use var.It print only boolean value.whether the value inside this method is array or not.
+ syntax:- Array.isArray(variableName);
+ let name = ["sanjay", "ram", "ivar", "no one"]
+ let number = 1234;
+ let string = "computer";
+ var result = Array.isArray(name);
+ console.log(result);                      //true
+ console.log(Array.isArray(name));         //true
+ console.log(Array.isArray(number));       //false
+ console.log(Array.isArray(string));       //false
+
+ **********************************************************************************************************
+
+every()
+syntax:- 
+ var a = (numbers) => numbers < 40;
+ var arr = [1, 30, 39, 29, 10, 13];
+ console.log(arr.every(a));               //true
+
+ var a = (numbers) => numbers > 6;
+ var arr = [1,2,3,4,5];
+ console.log(arr.every(a));               //false
+
