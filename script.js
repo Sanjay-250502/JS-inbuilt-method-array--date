@@ -210,3 +210,43 @@ console.log(flowers.indexOf("rose",2))       //3
  var a = (numbers) => numbers > 6;
  var arr = [1,2,3,4,5];
  console.log(arr.every(a));               //false
+
+ //fill() ===> it fills specified element in an array with a value. 
+ //syntax:- arrayname.fill(value);
+ var a = [1,2,3,4,5];
+ console.log(a.fill("a"));           //Array(5) [ "a", "a", "a", "a", "a" ]
+ console.log(a);                     //Array(5) [ "a", "a", "a", "a", "a" ]
+
+ var b = [1,2,3,4,5,6,7,8,9,10];
+ console.log(b.fill("a",2,9));       //Array(10) [ 1, 2, "a", "a", "a", "a", "a", "a", "a", 10 ]
+ console.log(b);                     //Array(10) [ 1, 2, "a", "a", "a", "a", "a", "a", "a", 10 ]   
+
+//valueOf()===> The valueOf() method returns the array itself. ===>The valueOf() method doesnt cgange the original array.
+ var a = ["banana","orange","apple","mango"];
+ console.log(a.valueOf());             //Array(4) [ "banana", "orange", "apple", "mango" ]
+ console.log(a.valueOf(2));            //Array(4) [ "banana", "orange", "apple", "mango" ]
+ 
+//copyWithin()
+//syntax:- arrayname.copywithin(target,start,end);
+//syntax:- arrayname.copywithin(target,start);  
+var arr = ['a','b','c','d','e','f','g'];
+console.log(arr.copyWithin(1,3,5));                 //Array(7) [ "a", "d", "e", "d", "e", "f", "g" ]
+var arr1 = ['a','b','c','d','e','f','g'];
+console.log(arr1.copyWithin(0,2));                  //Array(7) [ "c", "d", "e", "f", "g", "f", "g" ]
+
+//flat()
+//1. It creates an new array by concatenate sub array or nested array upto a specified depth. 
+//2. default depth is 1,[array.flat()];
+//3. It also removes the empty space in specified depth.
+//syntax:- array.flat(depth);
+var a = [1,2,[3,4,5,[6,[7],[8],9,],10,11],12,[13,[14,15]],16,17,18];
+console.log(a.flat());
+var b = a.flat(1);
+console.log(b);
+var c = a.flat(2);
+console.log(c);
+var d = a.flat(3);
+console.log(d);
+var e = a.flat(Infinity);
+console.log(e)
+console.log(a);
